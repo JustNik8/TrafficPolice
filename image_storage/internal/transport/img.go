@@ -46,11 +46,13 @@ func (h *ImgHandler) UploadCaseImg(w http.ResponseWriter, r *http.Request) {
 	}
 
 	// retrieve file from posted form-data
+
 	file, handler, err := r.FormFile("image")
 	if err != nil {
 		log.Printf("Error retrieving file from form-data: %v\n", err)
 		return
 	}
+
 	defer file.Close()
 
 	log.Printf("Uploaded file: %+v\n", handler.Filename)
